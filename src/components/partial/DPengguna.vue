@@ -7,11 +7,9 @@
         <button class="delete" @click="$emit('close')"></button>
       </header>
       <section class="modal-card-body">
-        <v-pengguna />
+        <v-pengguna @close_cont="$emit('close')" />
       </section>
       <footer class="modal-card-foot">
-        <u-notifikasi />
-        <u-proses />
       </footer>
     </div>
   </div>
@@ -19,15 +17,11 @@
 
 <script>
 import VPengguna from "./VPengguna";
-import UNotifikasi from "../UNotifikasi";
-import UProses from "../UProses";
 
 export default {
   name: "DPengguna",
   components: {
-    VPengguna,
-    UNotifikasi,
-    UProses,
+    VPengguna
   },
 };
 </script>

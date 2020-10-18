@@ -20,7 +20,7 @@ export default {
     masuk: function () {
       this.$store.dispatch('pengguna/masuk', {
         namaPengguna: this.loginPengguna
-      })
+      }).then(res => {if (res) {this.$emit('close_cont')}})
     },
     daftar: function () {
       this.$store.dispatch('pengguna/daftar', {

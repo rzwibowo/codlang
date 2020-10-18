@@ -21,6 +21,7 @@ const mutations = {
 
 const actions = {
   async masuk({ commit, dispatch }, { namaPengguna }) {
+    let retval = null
     try {
       dispatch('proses/tampilkanProses', null, { root: true })
       const url = `${URL_API}/user/login`
@@ -36,9 +37,10 @@ const actions = {
         })
         const dataNotifikasi = {
           apakahTampil: true,
-          pesan: 'Berhasil masuk, silakan tutup dialog ini'
+          pesan: 'Berhasil masuk'
         }
         await dispatch('notifikasi/tampilkanNotifikasi', dataNotifikasi, { root: true })
+        retval = true
       } else {
         throw new Error(respon.message)
       }
@@ -49,9 +51,11 @@ const actions = {
       }
       dispatch('notifikasi/tampilkanNotifikasi', dataNotifikasiGalat, { root: true })
       console.log(error)
+      retval = false
     } finally {
       dispatch('proses/hilangkanProses', null, { root: true })
     }
+    return retval
   },
   async daftar({ commit, dispatch }, { namaPengguna }) {
     try {

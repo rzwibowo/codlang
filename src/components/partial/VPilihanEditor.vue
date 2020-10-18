@@ -33,20 +33,24 @@
         />
       </div>
     </div>
-    <div class="buttons">
-      <f-tombol label="Reset" @klik="$emit('reset')" />
-      <f-tombol
-        v-if="hasilSorot && hasilSorot.length > 0"
-        label="Unduh"
-        @klik="unduh"
-        class="is-primary"
-      />
-      <f-tombol
-        v-if="$store.state.pengguna.idPengguna"
-        label="Simpan"
-        @klik="simpan"
-        class="is-primary"
-      />
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="buttons">
+          <f-tombol label="Reset" @klik="$emit('reset')" />
+          <f-tombol
+            v-if="hasilSorot && hasilSorot.length > 0"
+            label="Unduh"
+            @klik="unduh"
+            class="is-primary"
+          />
+          <f-tombol
+            v-if="$store.state.pengguna.idPengguna"
+            label="Simpan"
+            @klik="simpan"
+            class="is-primary"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
