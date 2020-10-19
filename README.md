@@ -1,5 +1,8 @@
 # codlang
 
+## CATATAN UNTUK REVIEWER
+Tolong, coding saya error. Vue.compile is not a function. Gimana itu?
+
 ## Project setup
 ```
 npm install
